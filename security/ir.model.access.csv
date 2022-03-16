@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cafe_ingredient,access.cafe.ingredient,model_cafe_ingredient,,1,1,1,1
+access_cafe_cofee,access.cafe.cofee,model_cafe_cofee,,1,1,1,1

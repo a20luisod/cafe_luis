@@ -1,0 +1,98 @@
+<odoo>
+    <record model="ir.ui.view" id="view_cofee_tree">
+        <field name="name">cafe.cofee.tree</field>
+        <field name="model">cafe.cofee</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="cofeeAval" />
+                
+
+            </tree>
+        </field>
+    </record>
+
+    
+
+    <record model="ir.ui.view" id="view_cofee_form">
+        <field name="name">cafe.cofee.form</field>
+        <field name="model">cafe.cofee</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name = "ingredientList"/>
+                            
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_cofee_kanban">
+        <field name="name">cafe.cofee.kanban</field>
+        <field name="model">cafe.cofee</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name" />
+                <field name="cofeeAval" />
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class ="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                        Cofee:  <field name="name"/>
+                                    </li>
+                                    <li>
+                                        <field name="cofeeAval"/>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+
+                </templates>
+
+            </kanban>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_cofee_search">
+        <field name="name">cafe.cofee.search</field>
+        <field name="model">cafe.cofee</field>
+        <field name="arch" type="xml">
+            <search string="Cofee">
+                <field name ="name"/>
+                <separator/>
+
+            </search>
+        </field>
+    </record>
+
+
+
+    <record id="cofee_action" model="ir.actions.act_window">
+        <field name="name">Cofees</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cafe.cofee</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p>
+                cree el cafe
+            </p>
+        </field>
+
+    </record>
+
+
+    <menuitem name="Cofees" id="cafe_luis_cofee_root" parent="cafe_luis_root" sequence="5" />
+    <menuitem name="Cofees" id="cafe_luis_cofee" parent="cafe_luis_cofee_root" sequence="5" action="cofee_action" />
+
+</odoo>

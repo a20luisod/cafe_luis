@@ -1,0 +1,107 @@
+<odoo>
+    <record model="ir.ui.view" id="view_ingredient_tree">
+        <field name="name">cafe.ingredient.tree</field>
+        <field name="model">cafe.ingredient</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="ingredientStock" />
+                <field name="ingredientExpiration" />
+                <field name="expired"/> 
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_ingredient_kanban">
+        <field name="name">cafe.ingredient.kanban</field>
+        <field name="model">cafe.ingredient</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name" />
+                <field name="ingredientStock" />
+                <field name="ingredientExpiration" />
+                <field name="expired"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class ="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                      Ingredient:  <field name="name"/>
+                                    </li>
+                                    <li>
+                                      Amount:  <field name="ingredientStock"/> (l/g)
+                                    </li>
+                                    <li>
+                                      Expiration:  <field name="ingredientExpiration"/>
+                                    </li>
+                                    <li>
+                                        <field name="expired"/> 
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+
+                </templates>
+
+            </kanban>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_ingredient_form">
+        <field name="name">cafe.ingredient.form</field>
+        <field name="model">cafe.ingredient</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="ingredientStock" />
+                        </group>
+                        <group>
+                            <field name="ingredientExpiration" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_ingredient_search">
+        <field name="name">cafe.ingredient.search</field>
+        <field name="model">cafe.ingredient</field>
+        <field name="arch" type="xml">
+            <search string="Ingredients">
+                <field name ="name"/>
+                <separator/>
+
+            </search>
+        </field>
+    </record>
+
+
+
+    <record id="ingredient_action" model="ir.actions.act_window">
+        <field name="name">Ingredients</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cafe.ingredient</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p>
+                cree el ingrediente de su cafe 
+            </p>
+        </field>
+
+    </record>
+
+
+    <menuitem name="Cafe" id="cafe_luis_root" sequence="10" />
+    <menuitem name="Igredients" id="cafe_luis_ingredient_root" parent="cafe_luis_root" sequence="10" />
+    <menuitem name="Igredients" id="cafe_luis_ingredient" parent="cafe_luis_ingredient_root" sequence="10" action="ingredient_action" />
+
+</odoo>
