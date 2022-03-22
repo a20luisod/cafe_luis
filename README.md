@@ -43,9 +43,6 @@ cafeLuis
    -Que en el modelo de ingredientes heredara de un modelo que ya almacena Stock en el propio Odoo para tenerlo así todo más unificado.
 
 
-	--También posee otra vista Kanban por si esta resulta mas cómoda --
-      	  --Para acceder a ella Clicar el boton representado con 4 cuadrados el la esquina superior derecha. 
-
 ## Authors and acknowledgment
 Luis Otero de Andrés
 
